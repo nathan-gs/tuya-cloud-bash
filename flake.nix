@@ -56,7 +56,7 @@
           };
         };
       };
-    };
+    
 
     packages.x86_64-linux.tuya-cloud-bash = 
       with import nixpkgs { system = “x86_64-linux”; }
@@ -67,7 +67,7 @@
         buildPhase = "";
         installPhase = "mkdir -p $out/bin; cp *.sh $out/bin";
       };
-    };
+    
 
     defaultPackage.x86_64-linux = packages.x86_64-linux.tuya-cloud-bash;
   };
