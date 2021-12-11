@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+export TUYA_CLIENT_ID
+export TUYA_SECRET
+export TUYA_BASE_URL
+
 source $(dirname "$0")/tuya.sh
 
 ## Parse Batch query for the list of associated App user dimension devices
