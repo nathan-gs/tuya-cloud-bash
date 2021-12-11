@@ -15,7 +15,7 @@ tuya() {
   fi
   if [ -z "$TUYA_SECRET" ]; then
     >&2 echo "TUYA_SECRET not set"
-    exit(1)
+    exit 1
   fi
   clientId="$TUYA_CLIENT_ID"
   secret="$TUYA_SECRET"
