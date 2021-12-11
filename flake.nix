@@ -107,8 +107,8 @@
               src = self;
               buildPhase = "";
               installPhase = "mkdir -p $out/bin; cp *.sh $out/bin";
-            };
-          )            
+            }
+          );
         
       };
   };
