@@ -58,7 +58,7 @@
       };
     
 
-    packages.x86_64-linux.tuya-cloud-bash = 
+    packages.x86_64-linux.tuya-cloud-bash = { lib, pkgs, ...}:
       with import nixpkgs { system = “x86_64-linux”; }
       stdenv.mkDerivation {
         name = "tuya-cloud-bash";
