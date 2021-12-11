@@ -9,7 +9,8 @@
       # Notice the reference to nixpkgs here.
       with import nixpkgs { system = "x86_64-linux"; };
 
-      nixosModules.tuya-cloud-prometheus = { lib, pkgs, config, ... }:
+      { 
+        nixosModules.tuya-cloud-prometheus = { lib, pkgs, config, ... }:
         let
           cfg = config.services.tuya-cloud-prometheus;
         in
@@ -60,6 +61,7 @@
             };
           };
         };
+      };
 
       stdenv.mkDerivation {
         name = "tuya-cloud-bash";
