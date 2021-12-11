@@ -1,11 +1,21 @@
 {
-  description = "A very basic flake";
+  description = "Tuya Cloud Bash Prometheus Exportor";
+
+  inputs.nixpkgs.url = github:NixOS/nixpkgs/nixos-21.11;
 
   outputs = { self, nixpkgs }: {
 
-    packages.x86_64-linux.hello = nixpkgs.legacyPackages.x86_64-linux.hello;
+    defaultPackage.x86_64-linux =
+      # Notice the reference to nixpkgs here.
+      with import nixpkgs { system = "x86_64-linux"; };
 
-    defaultPackage.x86_64-linux = self.packages.x86_64-linux.hello;
+      stdenv.mkDerivation {
+        name = "tuya-cloud-bash";
+        buildInputs = [jq, curl]
+        src = self;
+        buildPhase = "";
+        installPhase = "mkdir -p $out/bin; cp *.sh $out/bin";
+      };
 
   };
 }
