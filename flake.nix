@@ -88,7 +88,7 @@
                 mkdir -pm 0775 ${cfg.prometheusTextDirectory}
                 F=${cfg.prometheusTextDirectory}/tuya-cloud.prom
                 cat /dev/null > $F.next
-                ${cfg.package}/bin/tuya_prometheus_exportor.sh > $F
+                ${cfg.package}/bin/tuya_prometheus_exporter.sh > $F
                 mv $F.next $F
               '';
               startAt = "*:0/15";
