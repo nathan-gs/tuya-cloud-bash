@@ -11,7 +11,7 @@
 
       stdenv.mkDerivation {
         name = "tuya-cloud-bash";
-        buildInputs = [jq curl];
+        buildInputs = [jq curl openssl];
         src = self;
         buildPhase = "";
         installPhase = "mkdir -p $out/bin; cp *.sh $out/bin";
