@@ -5,21 +5,17 @@
 #TUYA_BASE_URL="https://openapi.tuyaeu.com"
 
 tuya_get_token() {
-  tuya GET /v1.0/token?grant_type=1 | jq -r '.result.access_token'
+  clientId="$1"
+  secret="$2"
+  url="$3"
+  tuya $client_id $secret $baseUrl GET /v1.0/token?grant_type=1 | jq -r '.result.access_token'
 }
 
 
 tuya() {
-  if [ -z "$TUYA_CLIENT_ID" ]; then
-    >&2 echo "TUYA_CLIENT_ID not set"
-  fi
-  if [ -z "$TUYA_SECRET" ]; then
-    >&2 echo "TUYA_SECRET not set"
-    exit 1
-  fi
-  clientId="$TUYA_CLIENT_ID"
-  secret="$TUYA_SECRET"
-  url="$TUYA_BASE_URL"
+  clientId="$1"
+  secret="$2"
+  url="$3"
   method="${1^^}"
   path="$2"
   accessToken="$3"
