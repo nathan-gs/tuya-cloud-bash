@@ -78,7 +78,7 @@
           config = with lib; mkIf cfg.enable {
             systemd.services.tuya-prometheus = {
               enable = true;
-              path = [ pkgs.bash pkgs.openssl pkgs.curl pkgs.jq ];
+              path = [ pkgs.bash pkgs.openssl pkgs.curl pkgs.jq pkgs.gawk pkgs.gnused ];
               environment = {
                 TUYA_CLOUD_CLIENTID = cfg.clientId;
                 TUYA_CLOUD_SECRET = cfg.secret;
