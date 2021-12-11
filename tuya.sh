@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-TUYA_CLIENT_ID=""
-TUYA_SECRET=""
-TUYA_BASE_URL="https://openapi.tuyaeu.com"
+#TUYA_CLIENT_ID=""
+#TUYA_SECRET=""
+#TUYA_BASE_URL="https://openapi.tuyaeu.com"
 
 tuya_get_token() {
   tuya GET /v1.0/token?grant_type=1 | jq -r '.result.access_token'
@@ -17,7 +17,6 @@ tuya() {
   path="$2"
   accessToken="$3"
   body="$4"
-  #headers="sign_method: HMAC-SHA256\nclient_id: $clientID\nt: $timestamp\nmode: cors\nContent-Type: application/json"
   headers="$5"
   timestamp="$(date '+%s%3N')"
 
@@ -26,8 +25,6 @@ tuya() {
   stringToSign="$method\n$bodyHash\n$headers\n$path"
 
   signatureToSign="$clientId$accessToken$timestamp$stringToSign"
-#  echo -e $signatureToSign
-
 
   signature=$(echo -ne "$signatureToSign" | openssl dgst -sha256 -hmac "$secret" | awk '{print $2}')
 
@@ -43,7 +40,6 @@ tuya() {
 
 }
 
-accessToken=$(tuya_get_token)
-
+#accessToken=$(tuya_get_token)
 #tuya get '/v1.0/iot-01/associated-users/devices?last_row_key=' $accessToken
 
