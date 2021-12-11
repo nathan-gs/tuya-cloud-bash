@@ -63,7 +63,7 @@
         };
       };
 
-      {
+      overlay = {
         stdenv.mkDerivation {
           name = "tuya-cloud-bash";
           buildInputs = [jq curl openssl];
