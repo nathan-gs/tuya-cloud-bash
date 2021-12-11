@@ -35,7 +35,7 @@
                 default = "https://openapi.tuyaeu.com";
               };
 
-              prometheusTextDirectory {
+              prometheusTextDirectory = mkOption {
                 type = types.str;
                 default = "/var/lib/prometheus-node-exporter/text-files";
               };
