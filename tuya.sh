@@ -10,6 +10,13 @@ tuya_get_token() {
 
 
 tuya() {
+  if [ -z "$TUYA_CLIENT_ID" ]; then
+    >&2 echo "TUYA_CLIENT_ID not set"
+  fi
+  if [ -z "$TUYA_SECRET" ]; then
+    >&2 echo "TUYA_SECRET not set"
+    exit(1)
+  fi
   clientId="$TUYA_CLIENT_ID"
   secret="$TUYA_SECRET"
   url="$TUYA_BASE_URL"
