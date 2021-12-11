@@ -88,11 +88,12 @@
                 mkdir -pm 0775 ${cfg.prometheusTextDirectory}
                 F=${cfg.prometheusTextDirectory}/tuya-cloud.prom
                 cat /dev/null > $F.next
+                source ${cfg.package}/bin/tuya.sh
                 source ${cfg.package}/bin/tuya_prometheus_exporter.sh
                 accessToken=$(tuya_get_token $TUYA_CLIENT_ID $TUYA_SECRET $TUYA_BASE_URL)
 
                 # Batch query for the list of associated App user dimension devices
-                tuya $TUYA_CLIENT_ID $TUYA_SECRET $TUYA_BASE_URL get '/v1.0/iot-01/associated-users/devices?last_row_key=' $accessToken | tuya_parse_batch_query > $F
+                tuya $TUYA_CLIENT_ID $TUYA_SECRET $TUYA_BASE_URL $accessToken get '/v1.0/iot-01/associated-users/devices?last_row_key=' | tuya_parse_batch_query > $F
                 mv $F.next $F
               '';
               startAt = "*:0/15";

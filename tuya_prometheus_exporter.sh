@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-source $(dirname "$0")/tuya.sh
-
 ## Parse Batch query for the list of associated App user dimension devices
 tuya_parse_batch_query() {
 
