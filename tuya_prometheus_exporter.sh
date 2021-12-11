@@ -99,9 +99,9 @@ tuya_device_wk() {
 }
 
 
-accessToken=$(tuya_get_token $TUYA_CLIENT_ID $TUYA_SECRET $TUYA_BASE_URL)
+#accessToken=$(tuya_get_token $TUYA_CLIENT_ID $TUYA_SECRET $TUYA_BASE_URL)
 
 # Batch query for the list of associated App user dimension devices
 #tuya get '/v1.0/iot-01/associated-users/devices?last_row_key=' $accessToken | jq -c '.result.devices[] '
-tuya $TUYA_CLIENT_ID $TUYA_SECRET $TUYA_BASE_URL get '/v1.0/iot-01/associated-users/devices?last_row_key=' $accessToken | tuya_parse_batch_query
+#tuya $TUYA_CLIENT_ID $TUYA_SECRET $TUYA_BASE_URL get '/v1.0/iot-01/associated-users/devices?last_row_key=' $accessToken | tuya_parse_batch_query
 
