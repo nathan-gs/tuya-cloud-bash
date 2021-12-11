@@ -20,9 +20,9 @@ tuya get '/v1.0/iot-01/associated-users/devices?last_row_key=' $TUYA_ACCESS_TOKE
 ## Prometheus Exporer usage
 
 ```sh
-TUYA_CLIENT_ID=""
-TUYA_SECRET=""
-TUYA_BASE_URL="https://openapi.tuyaeu.com"
+export TUYA_CLIENT_ID=""
+export TUYA_SECRET=""
+export TUYA_BASE_URL="https://openapi.tuyaeu.com"
 
 ./tuya_prometheus_exporter.sh
 ```
