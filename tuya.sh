@@ -8,7 +8,7 @@ tuya_get_token() {
   clientId="$1"
   secret="$2"
   url="$3"
-  tuya "$client_id" "$secret" "$url" "" GET /v1.0/token?grant_type=1 | jq -r '.result.access_token'
+  tuya "$clientId" "$secret" "$url" "" GET /v1.0/token?grant_type=1 | jq -r '.result.access_token'
 }
 
 
@@ -16,9 +16,9 @@ tuya() {
   clientId="$1"
   secret="$2"
   url="$3"
+  accessToken="$4"
   method="${5^^}"
   path="$6"
-  accessToken="$4"
   body="$7"
   headers="$8"
   timestamp="$(date '+%s%3N')"
