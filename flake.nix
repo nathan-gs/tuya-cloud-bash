@@ -92,7 +92,7 @@
                 source ${cfg.package}/bin/tuya_prometheus_exporter.sh
                           
                 accessToken=$(tuya_get_token "$TUYA_CLOUD_CLIENTID" "$TUYA_CLOUD_SECRET" "$TUYA_CLOUD_BASEURL")
-                echo $accessToken
+                echo "accessToken: $accessToken"
 
                 echo tuya "$TUYA_CLOUD_CLIENTID" "$TUYA_CLOUD_SECRET" "$TUYA_CLOUD_BASEURL" $accessToken get '/v1.0/iot-01/associated-users/devices?last_row_key='
                 tuya "$TUYA_CLOUD_CLIENTID" "$TUYA_CLOUD_SECRET" "$TUYA_CLOUD_BASEURL" $accessToken get '/v1.0/iot-01/associated-users/devices?last_row_key='
