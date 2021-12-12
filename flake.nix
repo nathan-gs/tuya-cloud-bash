@@ -90,10 +90,12 @@
                 cat /dev/null > $F.next
                 source ${cfg.package}/bin/tuya.sh
                 source ${cfg.package}/bin/tuya_prometheus_exporter.sh
+                
+                echo tuya_get_token "$TUYA_CLOUD_CLIENTID" "$TUYA_CLOUD_SECRET" "$TUYA_CLOUD_BASEURL"
                 accessToken=$(tuya_get_token "$TUYA_CLOUD_CLIENTID" "$TUYA_CLOUD_SECRET" "$TUYA_CLOUD_BASEURL")
                 echo $accessToken
                 # Batch query for the list of associated App user dimension devices
-                tuya "$TUYA_CLOUD_CLIENTID" "$TUYA_CLOUD_SECRET" "$TUYA_CLOUD_BASEURL" $accessToken get '/v1.0/iot-01/associated-users/devices?last_row_key=' | tuya_parse_batch_query > $F.next
+                echo tuya "$TUYA_CLOUD_CLIENTID" "$TUYA_CLOUD_SECRET" "$TUYA_CLOUD_BASEURL" $accessToken get '/v1.0/iot-01/associated-users/devices?last_row_key=' | tuya_parse_batch_query # > $F.next
                 mv $F.next $F
               '';
               startAt = "*:0/15";
