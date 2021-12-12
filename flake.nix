@@ -90,7 +90,8 @@
                 cat /dev/null > $F.next
                 source ${cfg.package}/bin/tuya.sh
                 source ${cfg.package}/bin/tuya_prometheus_exporter.sh
-                          
+                
+                tuya_get_token "$TUYA_CLOUD_CLIENTID" "$TUYA_CLOUD_SECRET" "$TUYA_CLOUD_BASEURL"
                 accessToken=$(tuya_get_token "$TUYA_CLOUD_CLIENTID" "$TUYA_CLOUD_SECRET" "$TUYA_CLOUD_BASEURL")
                 echo "accessToken: $accessToken"
 
