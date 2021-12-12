@@ -6,7 +6,7 @@
   };
 
   outputs = inputs@{ self, nixpkgs, flake-utils, flake-compat }:
-    flake-utils.lib.eachSystem [ "x86_64-linux" "x86_64-darwin" "i686-linux" ]
+    flake-utils.lib.eachDefaultSystem
       (
         system:
         let
