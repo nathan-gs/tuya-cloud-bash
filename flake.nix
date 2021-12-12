@@ -32,7 +32,7 @@
 
           devShell = mkShell {
             shellHook = ''
-              ${pkgs.tuya-cloud-bash}/bin/tuya.sh
+              source ${pkgs.tuya-cloud-bash}/bin/tuya.sh
             '';
           };
         }
