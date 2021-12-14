@@ -72,6 +72,11 @@
                 default = self.outputs.packages."${pkgs.system}".tuya-cloud-bash;
                 description = "The Tuya Cloud Bash package.";
               };
+              
+              startAt = mkOption {
+                type.str;
+                default = "*:0/15";
+              };
             };
           };
 
@@ -97,7 +102,7 @@
                 
                 mv $F.next $F
               '';
-              startAt = "*:0/15";
+              startAt = cfg.startAt;
             };
 
             
