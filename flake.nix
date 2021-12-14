@@ -73,8 +73,7 @@
                 description = "The Tuya Cloud Bash package.";
               };
               
-              startAt = mkOption {
-                types.str;
+              startAt = mkOption {             
                 default = "*:0/15";
               };
             };
