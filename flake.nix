@@ -74,7 +74,7 @@
               };
               
               startAt = mkOption {
-                type.str;
+                types.str;
                 default = "*:0/15";
               };
             };
